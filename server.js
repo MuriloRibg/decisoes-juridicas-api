@@ -12,7 +12,7 @@ app.use(express.json());
 // Configuração do driver Neo4j
 const driver = neo4j.driver(
   'bolt://localhost:7687', // Atualize conforme necessário (URI do banco)
-  neo4j.auth.basic('neo4j', '@Dois5371') // Substitua pela senha configurada no Neo4j Desktop
+  neo4j.auth.basic('neo4j', '') // Substitua pela senha configurada no Neo4j Desktop
 );
 
 const session = driver.session();
