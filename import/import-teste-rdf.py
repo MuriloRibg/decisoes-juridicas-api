@@ -5,7 +5,7 @@ auth_data = {
     'uri': "bolt://localhost:7687",
     'database': "neo4j",
     'user': "neo4j",
-    'pwd': "@Dois5371"
+    'pwd': ""
 }
 
 config = Neo4jStoreConfig(
