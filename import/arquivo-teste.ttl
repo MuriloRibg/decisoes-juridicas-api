@@ -1,0 +1,12 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+<http://example.org/livro/gabriela-cravo-canela>
+    dc:identifier "9788535912388";
+    foaf:name "Gabriela, Cravo e Canela";
+    dc:creator "Jorge Amado".
+
+<http://en.wikipedia.org/wiki/Oxford>
+    dc:title "Oxford";
+    dc:coverage "Oxfordshire";
+    dc:publisher "Wikipedia".
