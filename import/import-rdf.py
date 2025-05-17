@@ -5,7 +5,7 @@ auth_data = {
     'uri': "bolt://localhost:7687",
     'database': "neo4j",
     'user': "neo4j",
-    'pwd': ""
+    'pwd': "@Dois5371"
 }
 
 config = Neo4jStoreConfig(
@@ -14,8 +14,8 @@ config = Neo4jStoreConfig(
     batching=True
 )
 
-file_path = '/Users/muriloribeiro/Documents/GitHub/decisoes-juridicas-api/import/arquivo-teste.ttl'  # ou um link para um arquivo RDF válido
+file_path = 'import/outputFinal.rdf'
 
 neo4j_graph = Graph(store=Neo4jStore(config=config))
-neo4j_graph.parse(file_path, format="ttl")
+neo4j_graph.parse(file_path, format="xml")
 neo4j_graph.close(True)

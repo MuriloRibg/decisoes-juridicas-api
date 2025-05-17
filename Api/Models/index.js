@@ -15,14 +15,12 @@ const driver = neo4j.driver(`bolt://${host}:7687`,
     neo4j.auth.basic(userNeo4j, passwordNeo4j)
 );
 
-const session = driver.session();
-
 const userVirtuoso = process.env.DB_USER_VIRTUOSO;
 const passwordVirtuoso = process.env.DB_PASSWORD_VIRTUOSO;
 
 const url = `jdbc:virtuoso://${host}:1111/UID=${userVirtuoso}/PWD=${passwordVirtuoso}/CHARSET=UTF-8`;
 
-db.session = session;
+db.driver = driver;
 db.urlVirtuoso = url;
 
 module.exports = db;

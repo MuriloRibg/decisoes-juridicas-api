@@ -27,7 +27,7 @@ Este projeto é uma API desenvolvida para gerenciar e consultar dados relacionad
    npm install
    ```
 
-3. Preencha ou crie o arquvio `.env` na raiz do projeto e adicione suas variáveis de ambiente:
+3. Preencha ou crie o arquvio `.env` na raiz do projeto e adicioneq suas variáveis de ambiente:
 
     ```env
     PORT=3000
