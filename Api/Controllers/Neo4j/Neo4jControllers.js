@@ -1,25 +1,24 @@
 const db = require("../../Models/index");
 
 class Neo4jControllers {
-    static async getGraph(req, res) {
+    static async getQuantidadeProcessosPorJuiz(req, res) {
         const session = db.driver.session();
         try {
             const result = await session.run(`
-               MATCH (p:JudicialProcess)-[:judicialProcessMediatesAppellant]->(appellant),
-                      (p)-[:judicialProcessMediatesAppellee]->(appellee)
-                RETURN p, appellant, appellee
-                LIMIT 10
-            `);
+                  MATCH (j:FederalJudge)-[:federalJudgeMediatesJudicialProcess]->(p:JudicialProcess)
+                  RETURN j.label AS judgeName, count(p) AS totalProcesses
+                  ORDER BY totalProcesses DESC
+                `);
 
-            const records = result.records.map(record => ({
-                judicialProcess: record.get('p').properties,
-                appellant: record.get('appellant').properties,
-                appellee: record.get('appellee').properties
+            const summary = result.records.map(record => ({
+                judgeName: record.get('judgeName'),
+                totalProcesses: record.get('totalProcesses').toNumber() // Garanta que é um número
             }));
 
-            return res.status(200).json(records);
-        } catch (err) {
-            return res.status(500).json({error: err.message});
+            res.json(summary);
+        } catch (error) {
+            console.error('Erro ao buscar resumo de processos por juiz:', error);
+            res.status(500).json({error: 'Erro interno do servidor'});
         } finally {
             await session.close();
         }
