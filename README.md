@@ -1,5 +1,5 @@
 # Decisões Jurídicas API
-
+Trabalho de conclusão de curso de Sistema de Informação. []()
 Este projeto é uma API desenvolvida para gerenciar e consultar dados relacionados a decisões jurídicas. A API utiliza **Node.js**, **Express** e **Neo4j** como banco de dados para armazenar e consultar os dados.
 
 ## Tecnologias Utilizadas
